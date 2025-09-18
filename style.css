@@ -1,0 +1,671 @@
+:root {
+    --background-color: #f4f7f6;
+    --text-color: #333;
+    --hero-bg-color: #ffffff; /* Changed to a lighter color for light mode header */
+    --hero-text-color: #333; /* Changed to a darker color for text on light header */
+    --navbar-bg-color: rgba(255, 255, 255, 0.9); /* Lighter navbar for light mode */
+    --accent-color: #3498db;
+    --accent-hover-color: #2980b9;
+    --section-even-bg-color: #e0e6e5;
+    --card-bg-color: #fff;
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --card-hover-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    --border-color: #ccc;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --background-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --hero-bg-color: #16213e;
+    --hero-text-color: #e0e0e0;
+    --navbar-bg-color: rgba(22, 33, 62, 0.8);
+    --accent-color: #0f3460;
+    --accent-hover-color: #0a2342;
+    --section-even-bg-color: #22223b;
+    --card-bg-color: #2a2a4a;
+    --card-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    --card-hover-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    --border-color: #444;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background-color: var(--accent-color);
+    color: var(--hero-text-color);
+    border: none;
+    width: 40px; /* Make it round */
+    height: 40px; /* Make it round */
+    border-radius: 50%; /* Make it round */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2em; /* Adjust icon size */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 0; /* Remove padding */
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-2px);
+}
+
+/* General Body Styles */
+/* The original body styles are now using variables, so they are integrated above. */
+/* The following styles will be updated to use variables */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+.hero {
+    background-color: var(--hero-bg-color);
+    color: var(--hero-text-color);
+    padding-top: 120px;
+    padding-bottom: 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--navbar-bg-color);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    transition: all 0.3s ease-in-out; /* Smooth transition for menu toggle */
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links li:last-child { /* For the theme toggle button */
+    margin-left: 30px; /* Space from the last nav link */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--hero-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    transition: all 0.3s ease-in-out; /* Smooth transition for menu toggle */
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--hero-text-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.hero-content {
+    /* Removed padding-top as it's now handled by .hero padding-top */
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff; /* Keep white for button text for contrast */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-hover-color);
+    transform: translateY(-3px);
+}
+
+/* Section Styles */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-of-type(even) {
+    background-color: var(--section-even-bg-color);
+    transition: background-color 0.3s ease;
+}
+
+.section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--text-color); /* Using text-color for section titles in light mode */
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.skills-grid ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+}
+
+.skills-grid li {
+    background-color: var(--card-bg-color);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-grid li:hover {
+    transform: translateX(5px);
+}
+
+/* Experience Section */
+.job-entry {
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-entry:hover {
+    transform: translateY(-5px);
+}
+
+.job-entry h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.job-entry h4 {
+    color: var(--text-color); /* Adjusted to use text-color */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.job-entry p {
+    font-style: italic;
+    color: var(--text-color); /* Adjusted to use text-color */
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.job-entry ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.job-entry ul li {
+    margin-bottom: 8px;
+}
+
+/* Education Section */
+.education-entry {
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-entry:hover {
+    transform: translateY(-5px);
+}
+
+.education-entry h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.education-entry h4 {
+    color: var(--text-color); /* Adjusted to use text-color */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+/* Languages Section */
+.languages-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.languages-section li {
+    background-color: var(--card-bg-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+    font-weight: 600;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Projects Section */
+.projects-section {
+    background-color: var(--background-color); /* Use general background for consistency */
+    transition: background-color 0.3s ease;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.project-card h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    transition: color 0.3s ease;
+}
+
+.project-card p {
+    font-size: 1em;
+    color: var(--text-color); /* Adjusted to use text-color */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    background-color: var(--card-bg-color); /* Use card background for inputs */
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: var(--hero-bg-color);
+    color: var(--hero-text-color);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive Design */
+.menu-toggle {
+    display: none; /* Hidden by default on larger screens */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--hero-text-color);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: row; /* Keep logo and toggle on one line */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        /* Existing styles */
+    }
+
+    .nav-links li:last-child { /* For the theme toggle button */
+        margin-left: 15px; /* Adjust spacing for mobile */
+        order: 2; /* Place it after the logo but before the hamburger */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show hamburger menu on small screens */
+        order: 3; /* Place it after the theme toggle button */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on small screens */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--navbar-bg-color); /* Use navbar background variable */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* Keep shadow for now */
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 2em;
+    }
+
+    .skills-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .skills-grid ul {
+        width: 100%;
+    }
+
+    /* Hamburger menu animation */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .section h2 {
+        font-size: 1.8em;
+    }
+}
+
+/* Hero Image Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    background-color: var(--hero-bg-color);
+    color: var(--hero-text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-content {
+    z-index: 1; /* Ensure content is above the image */
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px; /* Space between content and image */
+}
+
+.hero-image {
+    position: relative;
+    width: 250px; /* Adjust size as needed */
+    height: 250px; /* Adjust size as needed */
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2); /* Light border effect */
+    margin-top: 30px; /* Space between hero content and image */
+    z-index: 1;
+    animation: fadeInScale 1.5s ease-out forwards;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%) brightness(90%); /* Subtle effect */
+    transition: filter 0.3s ease;
+}
+
+.hero-image img:hover {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Light Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive adjustments for hero section */
+@media (min-width: 769px) {
+    .hero {
+        flex-direction: row; /* Side-by-side on larger screens */
+        justify-content: space-around;
+        padding: 120px 0;
+    }
+
+    .hero-content {
+        text-align: left;
+        margin-bottom: 0;
+        max-width: 50%; /* Adjust as needed */
+    }
+
+    .hero-image {
+        margin-top: 0;
+        margin-left: 50px; /* Space between content and image */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Social Links in Footer */
+.social-links {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--hero-text-color); /* Inherit color from footer */
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color); /* Use accent color on hover */
+    transform: translateY(-3px);
+}

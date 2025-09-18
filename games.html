@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Nischit Shrestha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Nischit Shrestha</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="games" class="hero">
+            <div class="container">
+                <h2>My Games</h2>
+                <p>A showcase of some interactive projects.</p>
+                
+                <div class="game-container">
+                    <h3>Tic-Tac-Toe</h3>
+                    <div id="tic-tac-toe-board" class="board">
+                        <div class="cell" data-cell-index="0"></div>
+                        <div class="cell" data-cell-index="1"></div>
+                        <div class="cell" data-cell-index="2"></div>
+                        <div class="cell" data-cell-index="3"></div>
+                        <div class="cell" data-cell-index="4"></div>
+                        <div class="cell" data-cell-index="5"></div>
+                        <div class="cell" data-cell-index="6"></div>
+                        <div class="cell" data-cell-index="7"></div>
+                        <div class="cell" data-cell-index="8"></div>
+                    </div>
+                    <div id="game-status"></div>
+                    <button id="restart-button">Restart Game</button>
+                    <p class="made-by">Made by Nischit Shrestha</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Nischit Shrestha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
